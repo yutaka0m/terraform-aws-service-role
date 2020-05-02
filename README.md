@@ -7,7 +7,7 @@ A Terraform module that create service role with provided JSON IAM policy docume
 ```hcl
 module "service-role" {
   source  = "yutaka0m/service-role/aws"
-  version = "1.0.0"
+  version = "~> 1.0"
 
   iam_role_name = "TestRole"
 
