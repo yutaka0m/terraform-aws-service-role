@@ -61,7 +61,7 @@ data "aws_iam_policy_document" "example" {
 | description | The description of the role and the policy. | `string` | `"Managed by Terraform"` | no |
 | force\_detach\_policies | Specifies to force detaching any policies the role has before destroying. | `bool` | `false` | no |
 | iam\_role\_name | IAM role name | `string` | n/a | yes |
-| max\_session\_duration | The maximum session duration (in seconds) that you want to set for the specified role. | `string` | `"3600"` | no |
+| max\_session\_duration | The maximum session duration (in seconds) that you want to set for the specified role. | `number` | `3600` | no |
 | path | Path in which to create the role and the policy | `string` | `"/"` | no |
 | policies | name: Policy name / policy\_json: IAM JSON Policy | <pre>list(object({<br>    name        = string<br>    json_policy = string<br>  }))</pre> | `[]` | no |
 | predefined\_policy\_arns | List of predefined policy ARN | `list(string)` | `[]` | no |
