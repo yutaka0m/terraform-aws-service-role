@@ -5,19 +5,28 @@ A Terraform module that create service role with provided JSON IAM policy docume
 ## Usage
 
 ```hcl
-module "ecs_task_role" {
-  source        = "./"
+module "service-role" {
+  source  = "yutaka0m/service-role/aws"
+  version = "1.0.0"
+
   iam_role_name = "TestRole"
-  identifier    = "ecs-tasks.amazonaws.com"
+
+  trusted_entity = "ecs-tasks.amazonaws.com"
+
   predefined_policy_arns = [
     "arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy"
   ]
+
   policies = [
     {
-      name   = "ExamplePolicy"
-      policy = data.aws_iam_policy_document.example.json
+      name        = "ExamplePolicy"
+      json_policy = data.aws_iam_policy_document.example.json
     },
   ]
+
+  tags = {
+    Terraform = true
+  }
 }
 
 data "aws_iam_policy_document" "example" {
