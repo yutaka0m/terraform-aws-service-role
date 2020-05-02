@@ -20,8 +20,8 @@ variable "path" {
 
 variable "max_session_duration" {
   description = "The maximum session duration (in seconds) that you want to set for the specified role."
-  type        = "string"
-  default     = "3600"
+  type        = number
+  default     = 3600
 }
 
 variable "force_detach_policies" {
